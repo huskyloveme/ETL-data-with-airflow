@@ -4,6 +4,10 @@
 
 ![img.png](img.png)
 
+**Airflow**
+
+![img_3.png](img_3.png)
+
 **DataMart (TIKI products) from MONGODB (GG Looker)**
 
 ![img_1.png](img_1.png)
