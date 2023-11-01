@@ -6,7 +6,7 @@ import subprocess
 import pandas as pd
 import subprocess
 from list_atri import list_field
-from schema_data import schema, schema_sql
+# from schema_data import schema, schema_sql
 import json
 from datetime import datetime
 from google.oauth2 import service_account
@@ -221,7 +221,7 @@ def transfrom_data_mongo_to_bigquery():
     return check_mongodb
 
 #==================LOAD=====================
-def load_data_to_datamart():
+def load_data_mongo_to_datamart():
 
     view_id = 'factory-hackathon-2023.airflow.mongo_db_query_1'
     view = bigquery.Table(view_id)
@@ -230,7 +230,7 @@ def load_data_to_datamart():
      WHERE t.name != 'Root' \
      GROUP BY  t.name \
      ORDER BY count(1) DESC \
-     LIMIT 16 "
+     LIMIT 30 "
 
     try:
         client_gg.get_table(view)
@@ -238,6 +238,22 @@ def load_data_to_datamart():
     except:
         client_gg.create_table(view)
 
+def load_data_sql_to_datamart():
+
+    view_id = 'factory-hackathon-2023.airflow.mysql_db_query_1'
+    view = bigquery.Table(view_id)
+    # TOP 10 BRAND and PRICE
+    view.view_query = "SELECT branding as BRAND, count(1) as COUNT, avg(current_price) as AVG_PRICE \
+    FROM `factory-hackathon-2023.airflow.mysql_data` \
+    GROUP BY branding \
+    ORDER BY count(1) DESC \
+    LIMIT 20"
+
+    try:
+        client_gg.get_table(view)
+        client_gg.update_table(view, ['view_query'])
+    except:
+        client_gg.create_table(view)
 
 # extract_data_mongo_to_cgs(records=1000)
 # extract_data_mysql_to_cgs()
