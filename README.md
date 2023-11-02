@@ -8,16 +8,16 @@
 
 **POC of Project**
 
-![img.png](img.png)
+![img.png](images/img.png)
 
 **Airflow**
 
-![img_3.png](img_3.png)
+![img_3.png](images/img_3.png)
 
 **DataMart (TIKI products) from MONGODB (GG Looker)**
 
-![img_1.png](img_1.png)
+![img_1.png](images/img_1.png)
 
 **DataMart (Crawling products) from MYSQL (GG Looker)**
 
-![img_2.png](img_2.png)
+![img_2.png](images/img_2.png)
