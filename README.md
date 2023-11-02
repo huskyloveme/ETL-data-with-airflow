@@ -2,7 +2,7 @@
 
 **Project Description**
   * Automate update data from MongoDB, MySQL -> GCS -> GoogleBigquery
-  * Auto-load data after updated data by Google Looker
+  * Auto-load data dashboard by Google Looker (Schedule per day)
   * Handle with large data (about 30Gb with 1m5 records)
   * Give email for successful or failure of ETL progress
 
